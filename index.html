@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+ <style>
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+    body{
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(#039403 ,#849584);
+        padding: 15px;
+    }
+    input{
+        width: 340px;
+        height: 200px;
+       text-align: right;
+       border: none;
+       background: transparent;
+       font-size: 80px;
+       color: navajowhite;
+    }
+
+    .c{
+        width: 100px;
+        height: 60px;
+    }
+    .DEL{
+        width: 100px;
+        height: 60px;
+    }
+   .A{
+    width: 64px;
+    height: 60px;
+   }
+   .B{
+    width: 64px;
+    height: 60px;
+   }
+   .o{
+    width: 100px;
+    height: 60px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: navajowhite;
+   }
+   .d{
+    width: 64px;
+    height: 60px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: navajowhite;
+   }
+   input::placeholder{
+    font-size: 80px;
+    color: navajowhite;
+   }
+   .calculator{
+    border: 5px solid navajowhite;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: -8px 3px 10px rgb(191, 172, 201);
+    
+   }
+   span{
+    color: bisque;
+     font-style: oblique;
+    font-weight: 800;
+    padding: 4px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   }
+ </style>
+<body>
+  <div class="calculator">
+    <span>Made By Programmer Sazzad</span>
+    <input type="text" placeholder="0" id="inputBox">
+    <div>
+        <button class="c">C</button>
+        <button class="DEL">DEL</button>
+        <button class="A">%</button>
+        <button class="B">/</button>
+    </div>
+    <div>
+        <button class="o">7</button>
+        <button class="o">8</button>
+        <button class="d">9</button>
+        <button class="B">+</button>
+    </div>
+    <div>
+        <button class="o">4</button>
+        <button class="o">5</button>
+        <button class="d">6</button>
+        <button class="B">*</button>
+    </div>
+    <div>
+        <button class="o">1</button>
+        <button class="o">2</button>
+
+        <button class="d">3</button>
+        <button class="B">-</button>
+    </div>
+    <div>
+        <button class="o">00</button>
+        <button class="o">0</button>
+        <button class="d">.</button>
+        <button class="B">=</button>
+    </div>
+  </div>
+  
+</body>
+<!-- <script src="index.js"></script> -->
+<script>
+    let input=document.getElementById('inputBox');
+let buttons=document.querySelectorAll('button');
+let string= ' ';
+let array=Array.from(buttons);
+array.forEach(button=>{
+   button.addEventListener('click', (e)=>{
+       if(e.target.innerHTML == '='){
+           string=eval(string);
+           input.value=string;
+       }
+       else if(e.target.innerHTML == 'C'){
+           string='';
+           input.value=string;
+       }
+       else if(e.target.innerHTML == 'DEL'){
+           string=string.substring(0,string.length-1);
+           input.value=string;
+       }
+
+       else{
+           string += e.target.innerHTML;
+           input.value=string;
+       }
+   })
+})
+
+</script>
+</html>
